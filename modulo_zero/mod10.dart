@@ -23,7 +23,7 @@ bool verificarCartao(List<int> listNumCartao) {
   }
 
   List<int> listaSoma = [];
-  listNumCartao.removeLast();
+  var digitoVerificador = listNumCartao.removeLast();
   for (var i = 0; i < listNumCartao.length; i++) {
     if (i.isEven) {
       if ((listNumCartao[i] * 2) > 9) {
@@ -38,7 +38,12 @@ bool verificarCartao(List<int> listNumCartao) {
 
   var somaTotal = listaSoma.reduce((soma, numero) => soma + numero);
 
-  if (somaTotal % 10 == 0) {
+  var digitoCalculado = 10 - (somaTotal % 10);
+  if (digitoCalculado == 10) {
+    digitoCalculado = 0;
+  }
+
+  if (digitoCalculado == digitoVerificador) {
     return true;
   } else {
     return false;
