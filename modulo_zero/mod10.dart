@@ -50,8 +50,8 @@ bool verificarCartao(List<int> listNumCartao) {
   }
 }
 
-List<int> tratarNumCartao(String cpfString) {
-  return cpfString
+List<int> tratarNumCartao(String cartao) {
+  return cartao
       .replaceAll(' ', '')
       .split('')
       .map((num) => int.parse(num))
