@@ -1,61 +1,39 @@
-import 'dart:io';
-
 main() {
-  String nome = getName();
-  double altura = getHeight();
-  double peso = getWeight();
+  var pessoa = Pessoa(nome: 'João', altura: 1.80, peso: 70);
 
-  print("\x1B[2J\x1B[0;0H");
-  String result = calcularIMC(altura: altura, peso: peso);
-  print('IMC de $nome:');
+  String result = pessoa.calcularIMC(altura: pessoa.altura, peso: pessoa.peso);
+  print('IMC de ${pessoa.nome}:');
   print(result);
 }
 
-double getWeight() {
-  print('Digite seu peso: ');
-  var pesoStdin = stdin.readLineSync();
-  var peso = double.parse(pesoStdin!);
-  return peso;
-}
+class Pessoa {
+  String nome;
+  double altura;
+  double peso;
 
-double getHeight() {
-  print('Digite sua altura: ');
-  var alturaStdin = stdin.readLineSync();
-  var altura = double.parse(alturaStdin!);
-  return altura;
-}
+  Pessoa({required this.nome, required this.altura, required this.peso});
 
-String getName() {
-  print('Digite o seu nome: ');
-  final String? nome = stdin.readLineSync();
-
-  if (nome == null) {
-    return 'Nome não informado';
-  } else {
-    return nome;
-  }
-}
-
-String calcularIMC({required double altura, required double peso}) {
-  String result;
-  if (altura <= 0.0 || peso <= 0.0) {
-    result = 'Altura ou peso inválidos';
-  } else {
-    var imc = peso / (altura * altura);
-    var imcString = imc.toStringAsFixed(2);
-    if (imc < 18.5) {
-      result = '$imcString - Abaixo do peso';
-    } else if (imc < 24.9) {
-      result = '$imcString - Peso normal';
-    } else if (imc < 29.9) {
-      result = '$imcString - Sobrepeso';
-    } else if (imc < 34.9) {
-      result = '$imcString - Obesidade grau 1';
-    } else if (imc < 39.9) {
-      result = '$imcString - Obesidade grau 2';
+  String calcularIMC({required double altura, required double peso}) {
+    String result;
+    if (altura <= 0.0 || peso <= 0.0) {
+      result = 'Altura ou peso inválidos';
     } else {
-      result = '$imcString - Obesidade grau 3';
+      var imc = peso / (altura * altura);
+      var imcString = imc.toStringAsFixed(2);
+      if (imc < 18.5) {
+        result = '$imcString - Abaixo do peso';
+      } else if (imc < 24.9) {
+        result = '$imcString - Peso normal';
+      } else if (imc < 29.9) {
+        result = '$imcString - Sobrepeso';
+      } else if (imc < 34.9) {
+        result = '$imcString - Obesidade grau 1';
+      } else if (imc < 39.9) {
+        result = '$imcString - Obesidade grau 2';
+      } else {
+        result = '$imcString - Obesidade grau 3';
+      }
     }
+    return result;
   }
-  return result;
 }

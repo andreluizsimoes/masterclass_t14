@@ -1,83 +1,95 @@
 import 'dart:io';
 
 void main() {
-  print('Digite o CPF a ser validado:');
-  var cpfString = stdin.readLineSync();
+  var pessoa1 = Pessoa(nome: 'José', cpf: '123.456.789-09');
+  print(pessoa1.nome);
+  print(pessoa1.validarCPF(pessoa1.cpf));
 
-  var listCPF = tratarCPF(cpfString!);
-
-  var digito1 = calcDigito(List.from(listCPF), 1);
-  var digito2 = calcDigito(List.from(listCPF), 2);
-
-  print('===================');
-  if (digito1 && digito2) {
-    print('CPF válido!');
-  } else {
-    print('CPF inválido!');
-  }
-  print('===================');
+  var pessoa2 = Pessoa(nome: 'Maria', cpf: '123.456.789-10');
+  print(pessoa2.nome);
+  print(pessoa2.validarCPF(pessoa2.cpf));
 }
 
-bool calcDigito(List<int> listStringCPF, int digitoVerificador) {
-  int soma = 0;
-  int digito1;
-  int digito1Calculado;
-  int digito2;
-  int digito2Calculado;
+class Pessoa {
+  String nome;
+  String cpf;
 
-  if (digitoVerificador == 1) {
-    listStringCPF.removeAt(10);
-    digito1 = listStringCPF.removeAt(9);
+  Pessoa({required this.nome, required this.cpf});
 
-    for (int i = 0; i < listStringCPF.length; i++) {
-      soma += listStringCPF[i] * (10 - i);
-    }
+  String validarCPF(String cpf) {
+    var listCPF = tratarCPF(cpf);
 
-    int resto = soma % 11;
+    var digito1 = calcDigito(List.from(listCPF), 1);
+    var digito2 = calcDigito(List.from(listCPF), 2);
 
-    if (resto < 2) {
-      digito1Calculado = 0;
+    if (digito1 && digito2) {
+      return 'CPF válido!';
     } else {
-      digito1Calculado = (11 - resto);
-    }
-
-    if (digito1 == digito1Calculado) {
-      return true;
-    } else {
-      return false;
+      return 'CPF inválido!';
     }
   }
 
-  if (digitoVerificador == 2) {
-    digito2 = listStringCPF.removeAt(10);
-
-    for (int i = 0; i < listStringCPF.length; i++) {
-      soma += listStringCPF[i] * (11 - i);
-    }
-
-    int resto = soma % 11;
-
-    if (resto < 2) {
-      digito2Calculado = 0;
-    } else {
-      digito2Calculado = (11 - resto);
-    }
-
-    if (digito2 == digito2Calculado) {
-      return true;
-    } else {
-      return false;
-    }
+  List<int> tratarCPF(String cpfString) {
+    return cpfString
+        .replaceAll('.', '')
+        .replaceAll('-', '')
+        .split('')
+        .map((num) => int.parse(num))
+        .toList();
   }
 
-  return false;
-}
+  bool calcDigito(List<int> listStringCPF, int digitoVerificador) {
+    int soma = 0;
+    int digito1;
+    int digito1Calculado;
+    int digito2;
+    int digito2Calculado;
 
-List<int> tratarCPF(String cpfString) {
-  return cpfString
-      .replaceAll('.', '')
-      .replaceAll('-', '')
-      .split('')
-      .map((num) => int.parse(num))
-      .toList();
+    if (digitoVerificador == 1) {
+      listStringCPF.removeAt(10);
+      digito1 = listStringCPF.removeAt(9);
+
+      for (int i = 0; i < listStringCPF.length; i++) {
+        soma += listStringCPF[i] * (10 - i);
+      }
+
+      int resto = soma % 11;
+
+      if (resto < 2) {
+        digito1Calculado = 0;
+      } else {
+        digito1Calculado = (11 - resto);
+      }
+
+      if (digito1 == digito1Calculado) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    if (digitoVerificador == 2) {
+      digito2 = listStringCPF.removeAt(10);
+
+      for (int i = 0; i < listStringCPF.length; i++) {
+        soma += listStringCPF[i] * (11 - i);
+      }
+
+      int resto = soma % 11;
+
+      if (resto < 2) {
+        digito2Calculado = 0;
+      } else {
+        digito2Calculado = (11 - resto);
+      }
+
+      if (digito2 == digito2Calculado) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    return false;
+  }
 }
