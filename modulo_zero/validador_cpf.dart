@@ -1,5 +1,3 @@
-import 'dart:io';
-
 void main() {
   var pessoa1 = Pessoa(nome: 'José', cpf: '123.456.789-09');
   print(pessoa1.nome);
