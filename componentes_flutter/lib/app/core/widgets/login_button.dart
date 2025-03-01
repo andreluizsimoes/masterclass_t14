@@ -17,8 +17,10 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+
     return SizedBox(
-      width: double.infinity,
+      width: isPortrait ? double.infinity : 400,
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(bgColor),

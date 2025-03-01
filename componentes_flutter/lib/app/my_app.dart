@@ -1,3 +1,4 @@
+import 'package:componentes_flutter/app/pages/form_page.dart';
 import 'package:componentes_flutter/app/pages/home_page.dart';
 import 'package:componentes_flutter/app/pages/login_page.dart';
 import 'package:componentes_flutter/app/pages/tinder_page.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/tinder': (context) => const TinderPage(),
         '/login': (context) => const LoginPage(),
+        '/form': (context) => const FormPage(),
       },
     );
   }

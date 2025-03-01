@@ -36,6 +36,15 @@ class _HomePageState extends State<HomePage> {
             },
             child: const Text('Login Mockup'),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/form');
+            },
+            child: const Text('Form Page'),
+          ),
         ],
       )),
     );

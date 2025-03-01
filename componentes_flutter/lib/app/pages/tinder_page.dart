@@ -14,6 +14,8 @@ class _TinderPageState extends State<TinderPage> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -46,55 +48,57 @@ class _TinderPageState extends State<TinderPage> {
             end: Alignment.centerRight,
           ),
         ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: screenHeight * 0.15,
-            ),
-            Image.asset('assets/images/tinder_logo.png',
-                width: screenWidth * 0.7),
-            const SizedBox(
-              height: 20,
-            ),
-            const Rules(),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Column(
-                children: [
-                  TinderButton(
-                    icon: 'assets/images/apple_icon.png',
-                    text: 'sign in with apple',
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: 10),
-                  TinderButton(
-                    icon: 'assets/images/facebook.png',
-                    text: 'sign in with facebook',
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: 10),
-                  TinderButton(
-                    icon: 'assets/images/sms.png',
-                    text: 'sign in with phone number',
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: 10),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: isPortrait ? screenHeight * 0.15 : screenHeight * 0.02,
               ),
-            ),
-            TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Trouble Signing In?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                )),
-          ],
+              Image.asset('assets/images/tinder_logo.png',
+                  width: isPortrait ? screenWidth * 0.7 : screenWidth * 0.3),
+              SizedBox(
+                height: isPortrait ? 20 : screenHeight * 0.01,
+              ),
+              const Rules(),
+              SizedBox(
+                height: isPortrait ? 20 : 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  children: [
+                    TinderButton(
+                      icon: 'assets/images/apple_icon.png',
+                      text: 'sign in with apple',
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 10),
+                    TinderButton(
+                      icon: 'assets/images/facebook.png',
+                      text: 'sign in with facebook',
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 10),
+                    TinderButton(
+                      icon: 'assets/images/sms.png',
+                      text: 'sign in with phone number',
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Trouble Signing In?',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  )),
+            ],
+          ),
         ),
       ),
     );
