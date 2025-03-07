@@ -1,7 +1,7 @@
 import 'dart:io';
 
-Future<void> main(List<String> args) async {
-  final env = await DotEnv('modulo_zero/.env');
+void main(List<String> args) {
+  final env = DotEnv('modulo_zero/.env');
 
   final apiKey = env.getValue('URL_API');
   print(apiKey == 'https://api.github.com');
