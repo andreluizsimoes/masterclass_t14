@@ -45,7 +45,11 @@ class FormPage extends StatelessWidget {
                                 selectedGender = value;
                               },
                             ),
-                            const Text('Male'),
+                            const Text('Male',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Times New Roman',
+                                )),
                             Radio(
                               value: 'Female',
                               groupValue: selectedGender,
@@ -53,7 +57,11 @@ class FormPage extends StatelessWidget {
                                 selectedGender = value;
                               },
                             ),
-                            const Text('Female'),
+                            const Text('Female',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Times New Roman',
+                                )),
                           ]),
                         ),
                         const SizedBox(
@@ -73,7 +81,9 @@ class FormPage extends StatelessWidget {
                         ),
                         SubmitFormButton(
                           text: 'Submit',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('/');
+                          },
                         ),
                       ],
                     ),
@@ -87,6 +97,10 @@ class FormPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: const Text(
                       'Employee Details',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Times New Roman',
+                      ),
                     ),
                   ),
                 )

@@ -55,7 +55,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   LoginButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/');
+                    },
                     bgColor: Colors.blueAccent,
                     text: 'Sign Up with Email ID',
                     textColor: Colors.white,
@@ -64,7 +66,9 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   LoginButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/');
+                    },
                     bgColor: Colors.white,
                     text: 'Sign Up with Google',
                     textColor: Colors.black,
@@ -87,7 +91,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(width: 4),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/');
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                           minimumSize: const Size(1, 1),

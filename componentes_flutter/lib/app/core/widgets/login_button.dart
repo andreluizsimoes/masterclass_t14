@@ -21,33 +21,31 @@ class LoginButton extends StatelessWidget {
 
     return SizedBox(
       width: isPortrait ? double.infinity : 400,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(bgColor),
-          padding: MaterialStateProperty.all(
-            const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(5),
           ),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (image != null) Image.asset(image!, width: 24, height: 24),
+                if (image != null) const SizedBox(width: 10),
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
-        ),
-        onPressed: onPressed,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (image != null) Image.asset(image!, width: 24, height: 24),
-            if (image != null) const SizedBox(width: 10),
-            Text(
-              text,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 16,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ],
         ),
       ),
     );

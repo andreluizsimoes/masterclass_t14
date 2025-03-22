@@ -34,26 +34,20 @@ class LoginLogo extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          width: 10,
+          width: 5,
         ),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: 54,
+              height: 108,
               width: 50,
               decoration: const BoxDecoration(
                 color: Colors.blueAccent,
-                borderRadius: BorderRadius.only(topRight: Radius.circular(100)),
-              ),
-            ),
-            Container(
-              height: 54,
-              width: 50,
-              decoration: const BoxDecoration(
-                color: Colors.blueAccent,
-                borderRadius:
-                    BorderRadius.only(bottomLeft: Radius.circular(100)),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(100),
+                  bottomLeft: Radius.circular(100),
+                ),
               ),
             ),
           ],

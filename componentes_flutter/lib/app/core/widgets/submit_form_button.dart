@@ -9,25 +9,24 @@ class SubmitFormButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onPressed,
+    return GestureDetector(
+      onTap: onPressed,
       child: SizedBox(
         height: 30,
-        width: 100,
-        child: ElevatedButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(2),
-                side: BorderSide(color: Colors.grey, width: 1.5),
+        width: 70,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(4),
+            border: Border.all(color: Colors.grey, width: 1),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Colors.grey.shade800,
               ),
             ),
-            backgroundColor: MaterialStateProperty.all(Colors.grey.shade200),
-          ),
-          onPressed: () {},
-          child: Text(
-            text,
-            style: TextStyle(color: Colors.grey.shade800),
           ),
         ),
       ),

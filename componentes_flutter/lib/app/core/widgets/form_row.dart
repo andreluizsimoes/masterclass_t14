@@ -11,7 +11,13 @@ class FormRow extends StatelessWidget {
       height: 30,
       child: Row(
         children: [
-          Text(text),
+          Text(
+            text,
+            style: const TextStyle(
+              fontFamily: 'Times New Roman',
+              fontSize: 16,
+            ),
+          ),
           const SizedBox(
             width: 200,
             child: TextField(

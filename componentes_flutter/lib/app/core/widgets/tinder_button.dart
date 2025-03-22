@@ -12,7 +12,7 @@ class TinderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return InkWell(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         width: isPortrait ? double.infinity : 400,
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
