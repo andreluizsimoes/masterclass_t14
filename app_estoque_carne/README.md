@@ -1,16 +1,18 @@
-# app_estoque_carne
+# Açougue Sabor da Morte
 
-A new Flutter project.
+App básico de estudo para Masterclass da Flutterando.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screens
+<table>
+  <tr>
+    <th><b>Login Page</b></th>
+    <th><b>Home Page</b></th>
+    <th><b>Cadastro de Carne Page</b></th>
+  </tr>
+  <tr>
+    <td style="width:33%"><img src="https://github.com/user-attachments/assets/d043fadd-42e2-4b3c-95d5-73db68533346" width="300" ></td>
+    <td style="width:33%"><img src="https://github.com/user-attachments/assets/04ab997b-ea11-494b-827e-5ac01e9e23c0" width="300" ></td>
+    <td style="width:33%"><img src="https://github.com/user-attachments/assets/a4a69b34-32d8-4455-bc35-4f61391c3a30" width="300" ></td>   
+  </tr>
+</table>
